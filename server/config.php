@@ -1,12 +1,38 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Content-Type: application/json");
 
-$conn = new mysqli("localhost", "root", "", "ml_team_system");
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
+    exit();
+}
+
+$envPath = __DIR__ . "/.env";
+
+if (!file_exists($envPath)) {
+    echo json_encode([
+        "success" => false,
+        "message" => ".env file not found"
+    ]);
+    exit();
+}
+
+$env = parse_ini_file($envPath);
+
+$db_host = $env["DB_HOST"];
+$db_user = $env["DB_USER"];
+$db_pass = $env["DB_PASS"];
+$db_name = $env["DB_NAME"];
+$db_port = $env["DB_PORT"];
+
+$conn = new mysqli($db_host, $db_user, $db_pass, $db_name, $db_port);
 
 if ($conn->connect_error) {
-  die(json_encode(["success" => false, "message" => "Database connection failed"]));
+    echo json_encode([
+        "success" => false,
+        "message" => "Database connection failed: " . $conn->connect_error
+    ]);
+    exit();
 }
 ?>

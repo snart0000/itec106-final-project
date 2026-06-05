@@ -1,0 +1,8 @@
+<?php
+include "config.php";
+
+echo json_encode([
+  "success" => true,
+  "message" => "Database connected successfully"
+]);
+?>
