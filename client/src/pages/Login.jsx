@@ -29,11 +29,11 @@ function Login() {
     }
 
     try {
-      const res = await fetch(`${API}login.php`, {
+      const res = await fetch(`${API}/login.php`, {
         method: "POST",
         headers: {
-          // "Content-Type": "application/json",
-          "Content-Type": "text/plain",
+          "Content-Type": "application/json",
+          // "Content-Type": "text/plain",
         },
         body: JSON.stringify(form),
       });

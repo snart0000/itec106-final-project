@@ -1,19 +1,20 @@
 export default async function handler(req, res) {
   const backendUrl = "https://mlbb-api.infinityfree.io";
 
-  const target = req.query.path;
+  const path = req.query.path;
 
-  if (!target) {
-    return res.status(400).json({
-      success: false,
-      message: "Missing API path.",
-    });
-  }
+  const apiPath = Array.isArray(path) ? path.join("/") : path;
 
-  const url = `${backendUrl}/${target}`;
+  const queryString = new URLSearchParams(req.query);
+
+  queryString.delete("path");
+
+  const targetUrl = `${backendUrl}/${apiPath}${
+    queryString.toString() ? `?${queryString.toString()}` : ""
+  }`;
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(targetUrl, {
       method: req.method,
       headers: {
         "Content-Type": "text/plain",
