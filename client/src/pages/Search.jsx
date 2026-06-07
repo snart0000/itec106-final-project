@@ -15,7 +15,7 @@ function Search() {
 
   const getMyTeam = async () => {
     try {
-      const res = await fetch(`${API}get_my_team.php?user_id=${user?.id}`);
+      const res = await fetch(`${API}/get_my_team.php?user_id=${user?.id}`);
       const data = await res.json();
 
       if (data.has_team) {
@@ -37,7 +37,7 @@ function Search() {
 
     try {
       const res = await fetch(
-        `${API}search_user.php?q=${encodeURIComponent(q)}&my_team_id=${
+        `${API}/search_user.php?q=${encodeURIComponent(q)}&my_team_id=${
           myTeam?.id || 0
         }&waiting_hours=${WAITING_HOURS}`
       );
@@ -66,11 +66,11 @@ function Search() {
     }
 
     try {
-      const res = await fetch(`${API}invite_user.php`, {
+      const res = await fetch(`${API}/invite_user.php`, {
         method: "POST",
         headers: {
-          // "Content-Type": "application/json",
-          "Content-Type": "text/plain",
+          "Content-Type": "application/json",
+          // "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           team_id: myTeam.id,

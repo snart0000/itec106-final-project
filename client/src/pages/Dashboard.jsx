@@ -24,7 +24,7 @@ function Dashboard() {
   const getInvites = async () => {
     try {
       const res = await fetch(
-        `${API}get_invites.php?user_id=${user?.id}`
+        `${API}/get_invites.php?user_id=${user?.id}`
       );
 
       const data = await res.json();
@@ -39,7 +39,7 @@ function Dashboard() {
   const getNotificationCount = async () => {
     try {
       const res = await fetch(
-        `${API}get_notification_count.php?user_id=${user?.id}`
+        `${API}/get_notification_count.php?user_id=${user?.id}`
       );
 
       const data = await res.json();

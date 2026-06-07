@@ -25,7 +25,7 @@ function Tournaments() {
 
   const fetchTournaments = async () => {
     try {
-      const res = await fetch(`${API}get_tournaments.php?user_id=${user?.id}`);
+      const res = await fetch(`${API}/get_tournaments.php?user_id=${user?.id}`);
       const data = await res.json();
 
       setTeamId(Number(data.team_id));
@@ -46,11 +46,11 @@ function Tournaments() {
 
   const joinTournament = async (tournamentId) => {
     try {
-      const res = await fetch(`${API}join_tournament.php`, {
+      const res = await fetch(`${API}/join_tournament.php`, {
         method: "POST",
         headers: {
-          // "Content-Type": "application/json",
-          "Content-Type": "text/plain",
+          "Content-Type": "application/json",
+          // "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           user_id: user?.id,

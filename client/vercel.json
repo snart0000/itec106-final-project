@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://mlbb-api.infinityfree.io/:path*"
-    },
-    {
       "source": "/:path*",
       "destination": "/index.html"
     }
