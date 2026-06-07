@@ -39,7 +39,8 @@ function Invites() {
       const res = await fetch(`${API}/respond_invite.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           invite_id: inviteId,

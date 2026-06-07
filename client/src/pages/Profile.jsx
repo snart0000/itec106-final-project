@@ -58,8 +58,8 @@ function Profile() {
         {
           method: "POST",
           headers: {
-            "Content-Type":
-              "application/json",
+            // "Content-Type": "application/json",
+            "Content-Type": "text/plain",
           },
           body: JSON.stringify({
             ...profile,
@@ -127,8 +127,8 @@ function Profile() {
         {
           method: "POST",
           headers: {
-            "Content-Type":
-              "application/json",
+            // "Content-Type": "application/json",
+            "Content-Type": "text/plain",
           },
           body: JSON.stringify({
             user_id: user.id,

@@ -69,7 +69,8 @@ function Search() {
       const res = await fetch(`${API}/invite_user.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           team_id: myTeam.id,

@@ -72,7 +72,8 @@ function Team() {
       const res = await fetch(`${API}/respond_application.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           application_id: application.id,
@@ -190,7 +191,8 @@ function Team() {
       const res = await fetch(`${API}/leave_team.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           team_id: team.id,
@@ -220,7 +222,8 @@ function Team() {
       const res = await fetch(`${API}/kick_member.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           team_id: team.id,

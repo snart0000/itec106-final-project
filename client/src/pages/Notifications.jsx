@@ -19,7 +19,8 @@ function Notifications() {
     const res = await fetch(`${API}/mark_notifications_read.php`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
       body: JSON.stringify({ user_id: user?.id }),
     });

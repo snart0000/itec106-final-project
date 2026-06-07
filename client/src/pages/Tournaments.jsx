@@ -49,7 +49,8 @@ function Tournaments() {
       const res = await fetch(`${API}/join_tournament.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           user_id: user?.id,

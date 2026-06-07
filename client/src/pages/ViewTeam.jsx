@@ -58,7 +58,8 @@ function ViewTeam() {
       const res = await fetch(`${API}/submit_application.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify({
           team_id: teamId,

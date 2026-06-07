@@ -57,7 +57,8 @@ function Register() {
       const res = await fetch(`${API}/register.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
         body: JSON.stringify(form),
       });
