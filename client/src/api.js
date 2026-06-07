@@ -1,4 +1,4 @@
-const API = "/api/proxy";
+const API = "/api";
 
 export default API;
 
