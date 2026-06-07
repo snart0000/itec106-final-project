@@ -31,7 +31,7 @@ function Profile() {
   const getProfile = async () => {
     try {
       const res = await fetch(
-        `${API}/get_profile.php?user_id=${user.id}`
+        `${API}get_profile.php?user_id=${user.id}`
       );
 
       const data = await res.json();
@@ -54,7 +54,7 @@ function Profile() {
   const saveProfile = async () => {
     try {
       const res = await fetch(
-        `${API}/update_profile.php`,
+        `${API}update_profile.php`,
         {
           method: "POST",
           headers: {
@@ -123,7 +123,7 @@ function Profile() {
 
     try {
       const res = await fetch(
-        `${API}/change_password.php`,
+        `${API}change_password.php`,
         {
           method: "POST",
           headers: {

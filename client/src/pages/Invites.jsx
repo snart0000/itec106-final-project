@@ -17,7 +17,7 @@ function Invites() {
 
   const fetchInvites = async () => {
     try {
-      const res = await fetch(`${API}/get_invites.php?user_id=${user?.id}`);
+      const res = await fetch(`${API}get_invites.php?user_id=${user?.id}`);
       const data = await res.json();
 
       setInvites(data);
@@ -36,7 +36,7 @@ function Invites() {
 
   const respondInvite = async (inviteId, status) => {
     try {
-      const res = await fetch(`${API}/respond_invite.php`, {
+      const res = await fetch(`${API}respond_invite.php`, {
         method: "POST",
         headers: {
           // "Content-Type": "application/json",

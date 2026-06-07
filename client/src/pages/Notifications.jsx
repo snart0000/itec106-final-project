@@ -8,7 +8,7 @@ function Notifications() {
   const [loading, setLoading] = useState(true);
 
   const fetchNotifications = async () => {
-    const res = await fetch(`${API}/get_notifications.php?user_id=${user?.id}`);
+    const res = await fetch(`${API}get_notifications.php?user_id=${user?.id}`);
     const data = await res.json();
 
     setNotifications(data);
@@ -16,7 +16,7 @@ function Notifications() {
   };
 
   const markAsRead = async () => {
-    const res = await fetch(`${API}/mark_notifications_read.php`, {
+    const res = await fetch(`${API}mark_notifications_read.php`, {
       method: "POST",
       headers: {
         // "Content-Type": "application/json",

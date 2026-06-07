@@ -28,7 +28,7 @@ function Team() {
 
   const fetchApplications = async (teamId) => {
     try {
-      const res = await fetch(`${API}/get_team_applications.php?team_id=${teamId}`);
+      const res = await fetch(`${API}get_team_applications.php?team_id=${teamId}`);
       const data = await res.json();
 
       setApplications(data);
@@ -41,7 +41,7 @@ function Team() {
 
   const fetchMyTeam = async () => {
     try {
-      const res = await fetch(`${API}/get_my_team.php?user_id=${user?.id}`);
+      const res = await fetch(`${API}get_my_team.php?user_id=${user?.id}`);
       const data = await res.json();
 
       if (data.has_team) {
@@ -69,7 +69,7 @@ function Team() {
 
   const respondApplication = async (application, status) => {
     try {
-      const res = await fetch(`${API}/respond_application.php`, {
+      const res = await fetch(`${API}respond_application.php`, {
         method: "POST",
         headers: {
           // "Content-Type": "application/json",
@@ -114,7 +114,7 @@ function Team() {
         formData.append("team_logo_file", teamLogoFile);
       }
 
-      const res = await fetch(`${API}/create_team.php`, {
+      const res = await fetch(`${API}create_team.php`, {
         method: "POST",
         body: formData,
       });
@@ -188,7 +188,7 @@ function Team() {
 
   const leaveTeam = async () => {
     try {
-      const res = await fetch(`${API}/leave_team.php`, {
+      const res = await fetch(`${API}leave_team.php`, {
         method: "POST",
         headers: {
           // "Content-Type": "application/json",
@@ -219,7 +219,7 @@ function Team() {
 
   const kickMember = async (memberId) => {
     try {
-      const res = await fetch(`${API}/kick_member.php`, {
+      const res = await fetch(`${API}kick_member.php`, {
         method: "POST",
         headers: {
           // "Content-Type": "application/json",

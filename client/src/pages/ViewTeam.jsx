@@ -27,7 +27,7 @@ function ViewTeam() {
   const fetchTeam = async () => {
     try {
       const res = await fetch(
-        `${API}/get_public_team.php?team_id=${teamId}&user_id=${user?.id}`
+        `${API}get_public_team.php?team_id=${teamId}&user_id=${user?.id}`
       );
 
       const data = await res.json();
@@ -55,7 +55,7 @@ function ViewTeam() {
 
   const submitApplication = async () => {
     try {
-      const res = await fetch(`${API}/submit_application.php`, {
+      const res = await fetch(`${API}submit_application.php`, {
         method: "POST",
         headers: {
           // "Content-Type": "application/json",
