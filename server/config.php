@@ -8,18 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     exit();
 }
 
-$envPath = __DIR__ . "/.env";
-
-if (!file_exists($envPath)) {
-    echo json_encode([
-        "success" => false,
-        "message" => ".env file not found"
-    ]);
-    exit();
-}
-
-$env = parse_ini_file($envPath);
-
 $db_host = $env["DB_HOST"];
 $db_user = $env["DB_USER"];
 $db_pass = $env["DB_PASS"];
