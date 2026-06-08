@@ -1,9 +1,3 @@
-const API = "https://mlbb-api.infinityfree.io";
+const API = import.meta.env.VITE_API_URL;
 
 export default API;
-
-
-// // const API = "http://localhost/Final_Project/server";
-// const API = "https://mlbb-api.infinityfree.io";
-
-// export default API;
