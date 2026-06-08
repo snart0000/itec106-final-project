@@ -1,11 +1,28 @@
 export default async function handler(req, res) {
   const backendUrl = "https://mlbb-api.infinityfree.io";
 
-  const path = req.query.path;
-  const apiPath = Array.isArray(path) ? path.join("/") : path;
+  const path =
+    req.query.path ||
+    req.query["...path"] ||
+    req.query["0"];
+
+  const apiPath = Array.isArray(path)
+    ? path.join("/")
+    : path;
+
+  if (!apiPath) {
+    return res.status(400).json({
+      success: false,
+      message: "Missing API path.",
+      query: req.query,
+    });
+  }
 
   const query = new URLSearchParams(req.query);
+
   query.delete("path");
+  query.delete("...path");
+  query.delete("0");
 
   const targetUrl = `${backendUrl}/${apiPath}${
     query.toString() ? `?${query.toString()}` : ""
@@ -16,6 +33,8 @@ export default async function handler(req, res) {
       method: req.method,
       headers: {
         "Content-Type": "text/plain",
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/148.0.0.0 Safari/537.36",
       },
       body:
         req.method === "GET" || req.method === "HEAD"
@@ -32,6 +51,7 @@ export default async function handler(req, res) {
       return res.status(500).json({
         success: false,
         message: "Backend returned invalid response.",
+        targetUrl,
         raw: text,
       });
     }
