@@ -1,4 +1,4 @@
-const API = "/api";
+const API = "https://mlbb-api.infinityfree.io";
 
 export default API;
 
