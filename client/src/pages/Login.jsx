@@ -51,7 +51,11 @@ function Login() {
         });
 
         setTimeout(() => {
-          window.location.href = "/dashboard";
+          if (data.user.role === "admin") {
+                window.location.href = "/admin";
+              } else {
+                window.location.href = "/dashboard";
+              }
         }, 1000);
       } else {
         enqueueSnackbar(

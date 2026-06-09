@@ -10,6 +10,9 @@ import Profile from "./pages/Profile";
 import Notifications from "./pages/Notifications";
 import Tournaments from "./pages/Tournaments";
 import ViewTeam from "./pages/ViewTeam";
+import AdminDashboard from "./pages/AdminDashboard";
+import CreateTournament from "./pages/CreateTournament";
+import CreateAdmin from "./pages/CreateAdmin";
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/tournaments" element={<Tournaments />} />
         <Route path="/view-team/:teamId" element={<ViewTeam />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/create-tournament" element={<CreateTournament />} />
+        <Route path="/admin/create-admin" element={<CreateAdmin />} />
       </Routes>
     </BrowserRouter>
   );

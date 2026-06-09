@@ -6,8 +6,8 @@ $data = json_decode(file_get_contents("php://input"), true);
 $password = password_hash($data["password"], PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO users 
-(first_name, middle_initial, last_name, email, ign, uid, server, role1, role2, password)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+(first_name, middle_initial, last_name, email, ign, uid, server, role1, role2, password,  role)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'player')";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param(
